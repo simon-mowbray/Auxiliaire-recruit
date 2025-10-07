@@ -1,0 +1,25 @@
+{
+  "board": "telegram",
+  "job": {
+    "id": "job_001",
+    "title": "Auxiliaire de vie - Nuit (H/F)",
+    "description_html": "<p>Soutien de nuit auprès d'une personne dépendante. Soins d'hygiène, aide au lever/coucher.</p>",
+    "description_text": "Soutien de nuit auprès d'une personne dépendante. Soins d'hygiène, aide au lever/coucher, vigilance respiratoire. Profil empathique, ponctuel, francophone.",
+    "city": "Paris",
+    "postcode": "75012",
+    "country": "FR",
+    "department": "75",
+    "region": "IDF",
+    "employment_type": "FULL_TIME",
+    "hours": 35,
+    "salary": {
+      "min": 1800,
+      "max": 2100,
+      "currency": "EUR",
+      "period": "MONTH"
+    },
+    "remote": false,
+    "valid_through": "2025-11-15T23:59:59+02:00",
+    "apply_url": "https://exemple.tld/jobs/auxvie-nuit-paris"
+  }
+}

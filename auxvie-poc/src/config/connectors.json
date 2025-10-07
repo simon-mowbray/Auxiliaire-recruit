@@ -1,0 +1,89 @@
+{
+  "version": "1.0",
+  "connectors": [
+    {
+      "key": "facebook",
+      "label": "Facebook Pages",
+      "mode": "social",
+      "auth": {
+        "type": "page_token"
+      },
+      "endpoints": {
+        "page_post": "https://graph.facebook.com/v21.0/{page_id}/feed"
+      },
+      "mapping": {
+        "format": "FORM",
+        "fields": {
+          "message": "job.short_text + '\\n' + job.apply_url",
+          "link": "job.apply_url"
+        }
+      }
+    },
+    {
+      "key": "whatsapp",
+      "label": "WhatsApp Business Cloud",
+      "mode": "social",
+      "auth": {
+        "type": "bearer"
+      },
+      "endpoints": {
+        "send": "https://graph.facebook.com/v21.0/{phone_number_id}/messages"
+      },
+      "mapping": {
+        "format": "JSON",
+        "fields": {
+          "messaging_product": "whatsapp",
+          "to": "job.whatsapp_to",
+          "type": "text",
+          "text.body": "job.whatsapp_message"
+        }
+      }
+    },
+    {
+      "key": "telegram",
+      "label": "Telegram Bot API",
+      "mode": "social",
+      "auth": {
+        "type": "bot_token"
+      },
+      "endpoints": {
+        "sendMessage": "https://api.telegram.org/bot{token}/sendMessage"
+      },
+      "mapping": {
+        "format": "FORM",
+        "fields": {
+          "chat_id": "env.TELEGRAM_CHAT_ID",
+          "text": "job.telegram_message",
+          "parse_mode": "HTML",
+          "disable_web_page_preview": true
+        }
+      }
+    },
+    {
+      "key": "flux",
+      "label": "Flux XML + SFTP",
+      "mode": "flux",
+      "auth": {
+        "type": "sftp"
+      },
+      "endpoints": {
+        "sftp": "sftp://{host}:{port}{remote_path}"
+      },
+      "mapping": {
+        "format": "XML",
+        "fields": {
+          "title": "job.title",
+          "description": "job.description_html",
+          "city": "job.city",
+          "postcode": "job.postcode",
+          "country": "job.country",
+          "employment_type": "job.employment_type",
+          "salary_min": "job.salary.min",
+          "salary_max": "job.salary.max",
+          "validThrough": "job.valid_through",
+          "apply_url": "job.apply_url"
+        }
+      }
+    }
+  ]
+}
