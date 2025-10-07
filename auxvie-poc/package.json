@@ -1,0 +1,20 @@
+{
+  "name": "auxvie-poc",
+  "version": "1.0.1",
+  "description": "PoC diffusion d'offres auxiliaire de vie (API + social + flux)",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "NODE_ENV=development node src/index.js",
+    "lint": "echo 'add linter later'"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "ssh2-sftp-client": "^11.0.0",
+    "xmlbuilder2": "^3.1.1",
+    "node-fetch": "^3.3.2"
+  }
+}
